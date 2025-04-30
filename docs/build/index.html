@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="ru" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Библиотечный учет documentation &#8212; документация Библиотечный учет 1</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=47a0e12c"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=cd1d70c9"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="documentation">
+<h1>Библиотечный учет documentation<a class="headerlink" href="#documentation" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Add your content using <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> syntax. See the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">reStructuredText</a>
+documentation for details.</p>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py class" id="module-library">
+<dt class="sig sig-object py" id="library.Book">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">library.</span></span><span class="sig-name descname"><span class="pre">Book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">author</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isbn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Представляет книгу в библиотеке.</p>
+<dl class="simple">
+<dt>Атрибуты:</dt><dd><p>title (str): Название книги.
+author (str): Автор книги.
+isbn (str): ISBN книги.
+is_borrowed (bool): Флаг, указывающий, взята ли книга.
+borrower (Member): Читатель, который взял книгу.
+return_date (date): Дата, до которой книга должна быть возвращена.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Book.borrow">
+<span class="sig-name descname"><span class="pre">borrow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Book.borrow" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Позволяет читателю взять книгу.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>member</strong> (<a class="reference internal" href="#library.Member" title="library.Member"><em>Member</em></a>) – Читатель, берущий книгу.</p></li>
+<li><p><strong>return_date</strong> (<em>date</em>) – Дата возврата.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>True, если операция прошла успешно, иначе False.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Book.return_book">
+<span class="sig-name descname"><span class="pre">return_book</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#library.Book.return_book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Позволяет вернуть книгу в библиотеку.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True, если книга успешно возвращена, иначе False.</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="library.Library">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">library.</span></span><span class="sig-name descname"><span class="pre">Library</span></span><a class="headerlink" href="#library.Library" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Представляет библиотеку, содержащую книги и читателей.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.add_book">
+<span class="sig-name descname"><span class="pre">add_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.add_book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавляет книгу в библиотеку.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>book</strong> (<a class="reference internal" href="#library.Book" title="library.Book"><em>Book</em></a>) – Книга для добавления.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.add_member">
+<span class="sig-name descname"><span class="pre">add_member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">member</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.add_member" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Добавляет нового читателя.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>member</strong> (<a class="reference internal" href="#library.Member" title="library.Member"><em>Member</em></a>) – Новый читатель.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.calculate_fine">
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_fine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.calculate_fine" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Рассчитывает штраф за просрочку книги.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book</strong> (<a class="reference internal" href="#library.Book" title="library.Book"><em>Book</em></a>) – Книга.</p></li>
+<li><p><strong>return_date</strong> (<em>date</em>) – Дата возврата.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Сумма штрафа в рублях.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.get_book_by_isbn">
+<span class="sig-name descname"><span class="pre">get_book_by_isbn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.get_book_by_isbn" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Возвращает книгу по ISBN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isbn</strong> (<em>str</em>) – ISBN книги.</p>
+</dd>
+<dt class="field-even">Результат<span class="colon">:</span></dt>
+<dd class="field-even"><p>Найденная книга или None.</p>
+</dd>
+<dt class="field-odd">Тип результата<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#library.Book" title="library.Book">Book</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.remove_book">
+<span class="sig-name descname"><span class="pre">remove_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">isbn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.remove_book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаляет книгу по ISBN.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isbn</strong> (<em>str</em>) – ISBN книги.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Library.remove_member">
+<span class="sig-name descname"><span class="pre">remove_member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">membership_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Library.remove_member" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Удаляет читателя по ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>membership_id</strong> (<em>int</em>) – ID читателя.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="library.Member">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">library.</span></span><span class="sig-name descname"><span class="pre">Member</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">membership_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Member" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Базовые классы: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Представляет читателя библиотеки.</p>
+<dl class="simple">
+<dt>Атрибуты:</dt><dd><p>name (str): Имя читателя.
+membership_id (int): Идентификатор читателя.
+borrowed_books (list): Список взятых книг.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Member.borrow_book">
+<span class="sig-name descname"><span class="pre">borrow_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Member.borrow_book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Читатель берет книгу.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book</strong> (<a class="reference internal" href="#library.Book" title="library.Book"><em>Book</em></a>) – Книга для взятия.</p></li>
+<li><p><strong>return_date</strong> (<em>date</em>) – Дата возврата.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Member.get_overdue_books">
+<span class="sig-name descname"><span class="pre">get_overdue_books</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#library.Member.get_overdue_books" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Возвращает список просроченных книг.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Результат<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Список книг с истекшим сроком возврата.</p>
+</dd>
+<dt class="field-even">Тип результата<span class="colon">:</span></dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="library.Member.return_book">
+<span class="sig-name descname"><span class="pre">return_book</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">book</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_date</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#library.Member.return_book" title="Ссылка на это определение">¶</a></dt>
+<dd><p>Читатель возвращает книгу.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Параметры<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>book</strong> (<a class="reference internal" href="#library.Book" title="library.Book"><em>Book</em></a>) – Книга, которую возвращают.</p></li>
+<li><p><strong>return_date</strong> (<em>date</em>) – Фактическая дата возврата.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Библиотечный учет</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Искать" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Навигация</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Соболев Дмитрий.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

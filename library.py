@@ -1,6 +1,7 @@
 import datetime
 from typing import Optional
 
+
 class Book:
     """
     Представляет книгу в библиотеке.
@@ -236,7 +237,8 @@ class Library:
             overdue_days = (return_date - book.return_date).days
             fine = overdue_days * 10
             return fine
-        else: return 0
+        else:
+            return 0
 
 
 # Пример работы

@@ -27,10 +27,10 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.is_borrowed = False
-        self.borrower = None
+        self.borrower: 'Member' = None
         self.return_date = None
 
-    def borrow(self, member: 'Member', return_date: datetime) -> bool:
+    def borrow(self, member: 'Member', return_date: datetime.datetime) -> bool:
         """
         Позволяет читателю взять книгу.
 

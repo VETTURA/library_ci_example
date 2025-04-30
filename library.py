@@ -1,5 +1,5 @@
 import datetime
-
+from typing import Optional
 
 class Book:
     """
@@ -27,10 +27,10 @@ class Book:
         self.author = author
         self.isbn = isbn
         self.is_borrowed = False
-        self.borrower: 'Member' = None
-        self.return_date = None
+        self.borrower: Optional['Member'] = None
+        self.return_date: Optional[datetime.date] = None
 
-    def borrow(self, member: 'Member', return_date: datetime.datetime) -> bool:
+    def borrow(self, member: 'Member', return_date: datetime.date) -> bool:
         """
         Позволяет читателю взять книгу.
 
@@ -87,9 +87,9 @@ class Member:
         """
         self.name = name
         self.membership_id = membership_id
-        self.borrowed_books = []
+        self.borrowed_books: list[Book] = []
 
-    def borrow_book(self, book: Book, return_date: datetime):
+    def borrow_book(self, book: Book, return_date: datetime.date) -> None:
         """
         Читатель берет книгу.
 
@@ -100,7 +100,7 @@ class Member:
         if book.borrow(self, return_date):
             self.borrowed_books.append(book)
 
-    def return_book(self, book: Book, return_date: datetime):
+    def return_book(self, book: Book, return_date: datetime.date) -> None:
         """
         Читатель возвращает книгу.
 
@@ -126,7 +126,7 @@ class Member:
         """
         overdue_books = []
         for book in self.borrowed_books:
-            if book.return_date < datetime.date.today():
+            if book.return_date is not None and book.return_date < datetime.date.today():
                 overdue_books.append(book)
         return overdue_books
 
@@ -136,14 +136,14 @@ class Library:
     Представляет библиотеку, содержащую книги и читателей.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Инициализация библиотеки.
         """
-        self.books = []
-        self.members = []
+        self.books: list[Book] = []
+        self.members: list[Member] = []
 
-    def add_book(self, book: Book):
+    def add_book(self, book: Book) -> None:
         """
         Добавляет книгу в библиотеку.
 
@@ -152,7 +152,7 @@ class Library:
         """
         self.books.append(book)
 
-    def remove_book(self, isbn: str):
+    def remove_book(self, isbn: str) -> None:
         """
         Удаляет книгу по ISBN.
 
@@ -173,7 +173,7 @@ class Library:
         else:
             print("Книга с таким ISBN не найдена.")
 
-    def add_member(self, member: Member):
+    def add_member(self, member: Member) -> None:
         """
         Добавляет нового читателя.
 
@@ -182,7 +182,7 @@ class Library:
         """
         self.members.append(member)
 
-    def remove_member(self, membership_id: int):
+    def remove_member(self, membership_id: int) -> None:
         """
         Удаляет читателя по ID.
 
@@ -203,7 +203,7 @@ class Library:
         else:
             print("Читатель с таким ID не найден.")
 
-    def get_book_by_isbn(self, isbn: str) -> Book:
+    def get_book_by_isbn(self, isbn: str) -> Book | None:
         """
         Возвращает книгу по ISBN.
 
@@ -219,7 +219,7 @@ class Library:
         return None
 
     @staticmethod
-    def calculate_fine(book, return_date: datetime) -> int:
+    def calculate_fine(book: Book, return_date: datetime.date) -> int:
         """
         Рассчитывает штраф за просрочку книги.
 
@@ -230,11 +230,13 @@ class Library:
         Returns:
             int: Сумма штрафа в рублях.
         """
-        if return_date <= book.return_date:
-            return 0
-        overdue_days = (return_date - book.return_date).days
-        fine = overdue_days * 10
-        return fine
+        if book.return_date is not None:
+            if return_date <= book.return_date:
+                return 0
+            overdue_days = (return_date - book.return_date).days
+            fine = overdue_days * 10
+            return fine
+        else: return 0
 
 
 # Пример работы

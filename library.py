@@ -14,7 +14,7 @@ class Book:
         return_date (date): Дата, до которой книга должна быть возвращена.
     """
 
-    def __init__(self, title, author, isbn):
+    def __init__(self, title, author, isbn) -> None:
         """
         Инициализация книги.
 
@@ -30,7 +30,7 @@ class Book:
         self.borrower = None
         self.return_date = None
 
-    def borrow(self, member, return_date):
+    def borrow(self, member, return_date) -> bool:
         """
         Позволяет читателю взять книгу.
 
@@ -50,7 +50,7 @@ class Book:
         print(f"Книга '{self.title}' успешно взята {member.name}.")
         return True
 
-    def return_book(self):
+    def return_book(self) -> bool:
         """
         Позволяет вернуть книгу в библиотеку.
 
@@ -77,7 +77,7 @@ class Member:
         borrowed_books (list): Список взятых книг.
     """
 
-    def __init__(self, name, membership_id):
+    def __init__(self, name, membership_id) -> None:
         """
         Инициализация читателя.
 
@@ -89,7 +89,7 @@ class Member:
         self.membership_id = membership_id
         self.borrowed_books = []
 
-    def borrow_book(self, book, return_date):
+    def borrow_book(self, book, return_date) -> None:
         """
         Читатель берет книгу.
 
@@ -100,7 +100,7 @@ class Member:
         if book.borrow(self, return_date):
             self.borrowed_books.append(book)
 
-    def return_book(self, book, return_date):
+    def return_book(self, book, return_date) -> None:
         """
         Читатель возвращает книгу.
 
@@ -117,7 +117,7 @@ class Member:
                 print(f"Книга '{book.title}' возвращена без штрафа.")
             book.return_book()
 
-    def get_overdue_books(self):
+    def get_overdue_books(self) -> list[Book]:
         """
         Возвращает список просроченных книг.
 
@@ -136,14 +136,14 @@ class Library:
     Представляет библиотеку, содержащую книги и читателей.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Инициализация библиотеки.
         """
         self.books = []
         self.members = []
 
-    def add_book(self, book):
+    def add_book(self, book) -> None:
         """
         Добавляет книгу в библиотеку.
 

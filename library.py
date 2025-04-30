@@ -30,7 +30,7 @@ class Book:
         self.borrower = None
         self.return_date = None
 
-    def borrow(self, member, return_date) -> bool:
+    def borrow(self, member: 'Member', return_date: datetime) -> bool:
         """
         Позволяет читателю взять книгу.
 
@@ -77,7 +77,7 @@ class Member:
         borrowed_books (list): Список взятых книг.
     """
 
-    def __init__(self, name, membership_id) -> None:
+    def __init__(self, name: str, membership_id: int):
         """
         Инициализация читателя.
 
@@ -89,7 +89,7 @@ class Member:
         self.membership_id = membership_id
         self.borrowed_books = []
 
-    def borrow_book(self, book, return_date) -> None:
+    def borrow_book(self, book: Book, return_date: datetime):
         """
         Читатель берет книгу.
 
@@ -100,7 +100,7 @@ class Member:
         if book.borrow(self, return_date):
             self.borrowed_books.append(book)
 
-    def return_book(self, book, return_date) -> None:
+    def return_book(self, book: Book, return_date: datetime):
         """
         Читатель возвращает книгу.
 
@@ -136,14 +136,14 @@ class Library:
     Представляет библиотеку, содержащую книги и читателей.
     """
 
-    def __init__(self) -> None:
+    def __init__(self):
         """
         Инициализация библиотеки.
         """
         self.books = []
         self.members = []
 
-    def add_book(self, book) -> None:
+    def add_book(self, book: Book):
         """
         Добавляет книгу в библиотеку.
 
@@ -152,7 +152,7 @@ class Library:
         """
         self.books.append(book)
 
-    def remove_book(self, isbn):
+    def remove_book(self, isbn: str):
         """
         Удаляет книгу по ISBN.
 
@@ -173,7 +173,7 @@ class Library:
         else:
             print("Книга с таким ISBN не найдена.")
 
-    def add_member(self, member):
+    def add_member(self, member: Member):
         """
         Добавляет нового читателя.
 
@@ -182,7 +182,7 @@ class Library:
         """
         self.members.append(member)
 
-    def remove_member(self, membership_id):
+    def remove_member(self, membership_id: int):
         """
         Удаляет читателя по ID.
 
@@ -203,7 +203,7 @@ class Library:
         else:
             print("Читатель с таким ID не найден.")
 
-    def get_book_by_isbn(self, isbn):
+    def get_book_by_isbn(self, isbn: str) -> Book:
         """
         Возвращает книгу по ISBN.
 
@@ -219,7 +219,7 @@ class Library:
         return None
 
     @staticmethod
-    def calculate_fine(book, return_date):
+    def calculate_fine(book, return_date: datetime) -> int:
         """
         Рассчитывает штраф за просрочку книги.
 

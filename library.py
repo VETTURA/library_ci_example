@@ -14,7 +14,7 @@ class Book:
         return_date (date): Дата, до которой книга должна быть возвращена.
     """
 
-    def __init__(self, title, author, isbn) -> None:
+    def __init__(self, title: str, author: str, isbn: str):
         """
         Инициализация книги.
 

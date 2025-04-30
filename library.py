@@ -220,7 +220,7 @@ class Library:
         return None
 
     @staticmethod
-    def calculate_fine(book: Book, return_date: datetime.date) -> int:
+    def calculate_fine(book, return_date: datetime.date) -> int:
         """
         Рассчитывает штраф за просрочку книги.
 
